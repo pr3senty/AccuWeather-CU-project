@@ -51,7 +51,7 @@ def index_post():
         ]):
             start_cities = list(suitable_cities_for_start.keys())[1:]
             end_cities = list(suitable_cities_for_end.keys())[1:]
-
+            
             return show_result(
                 Result.INCORRECT_INPUT,
                 match_start_city=match_start_city,
@@ -95,8 +95,8 @@ def show_result(result : Result, **kwargs):
 
         match_start_city = kwargs["match_start_city"]
         match_end_city = kwargs["match_end_city"]
-        start_point = kwargs["start_point"] if len(start_cities) == 1 else ""
-        end_point = kwargs["end_point"] if len(end_cities) == 1 else ""
+        start_point = kwargs["start_point"] if match_start_city else ""
+        end_point = kwargs["end_point"] if match_end_city else ""
         time_range = kwargs["time_range"] if "time_range" in kwargs else ""
         incorrect_time_range = time_range not in time_ranges.keys()
 

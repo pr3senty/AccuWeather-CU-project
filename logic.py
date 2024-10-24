@@ -37,7 +37,10 @@ def find_suitable_cities(target_city: str, cities : list[str]):
             ma[0].append(city_entry)
 
 
-    match = (ma[1] == 0 or ma[1] == 1 and ma[0][0][-1] != target_city[-1]) and len(ma[0]) == 1
+    match = (
+            (ma[1] == 0 or (ma[1] == 1 and ma[0][0][-1] != target_city[-1] and target_city[-1] in "аеуы"))
+            and len(ma[0]) == 1
+    )
 
     return match, ma[0]
 

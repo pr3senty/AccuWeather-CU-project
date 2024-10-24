@@ -10,7 +10,7 @@
 <p class="red">Не можем найти город из которого вы едите(</p>
 {% endif %}
 
-{% if not start_cities|length > 1%}
+{% if start_cities|length > 1%}
 <p>Возможно это</p>
 
 {% for city in start_cities %}
